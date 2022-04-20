@@ -35,9 +35,21 @@
                     Категория: {{ item.category }}
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <p class="card-text">{{ item.content }}</p>
-                    <a href="#" class="btn btn-primary">Read more...</a>
+                  <h5 class="card-title">{{ item.title }}</h5>
+                      <div class="media">
+                          {% if item.photo %}
+                          <img src="{{ item.photo.url }}" alt="" width="1000">
+                          {% else %}
+{#                              <h4>"No photo"</h4>#}
+                               <img src="https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk" alt="" width="700">
+                          {% endif %}
+                          <div class="media-body">
+
+                                <p class="card-text">{{ item.content }}</p>
+                                <a href="#" class="btn btn-primary">Read more...</a>
+                          </div>
+                      </div>
+
                   </div>
                   <div class="card-footer text-mixed">
                       {{ item.created_at|date:"Y-m-d H:i:s" }}
