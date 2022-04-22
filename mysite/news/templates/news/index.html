@@ -41,18 +41,19 @@
                           <img src="{{ item.photo.url }}" alt="" width="1000">
                           {% else %}
 {#                              <h4>"No photo"</h4>#}
-                               <img src="https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk" alt="" width="700">
+{#                               <img src="http://beerhold.it/400/300" alt="" width="350">#}
+                              <img src="http://picsum.photos/id/1060/350/235" alt="" width="350" class="mr-3">
                           {% endif %}
                           <div class="media-body">
 
-                                <p class="card-text">{{ item.content }}</p>
+                                <p class="card-text">{{ item.content|safe|linebreaks|truncatewords:50 }}</p>
                                 <a href="#" class="btn btn-primary">Read more...</a>
                           </div>
                       </div>
 
                   </div>
                   <div class="card-footer text-mixed">
-                      {{ item.created_at|date:"Y-m-d H:i:s" }}
+                      {{ item.created_at|timesince }}
                   </div>
                 </div>
             {% endfor %}
