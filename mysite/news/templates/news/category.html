@@ -9,18 +9,10 @@
 {% endblock %}
 
 {% block sidebar %}
-    <div class="col-md-2">
-        <div class="list-group">
-            {% for item in categories %}
-                <a href="{% url 'category' item.pk %}"
-                   class="list-group-item list-group-item-action">{{ item.title }}</a>
-            {% endfor %}
-        </div>
-    </div>
+{% include 'inc/_sidebar.html' %}
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-10">
         {% for item in news %}
             <div class="card mb-3">
                 <div class="card-header">
@@ -30,7 +22,7 @@
                     <h5 class="card-title">{{ item.title }}</h5>
                     <div class="media">
                         {% if item.photo %}
-                            <img src="{{ item.photo.url }}" alt="" width="1000">
+                            <img src="{{ item.photo.url }}" alt="" width="500">
                         {% else %}
                             <img src="http://picsum.photos/id/1060/350/235" alt="" width="350" class="mr-3">
                         {% endif %}
@@ -46,5 +38,4 @@
                 {{ item.created_at|timesince }}
             </div>
         {% endfor %}
-    </div>
 {% endblock %}
