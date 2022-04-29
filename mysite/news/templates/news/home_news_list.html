@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block sidebar %}
-{% include 'inc/_sidebar.html' %}
+    {% include 'inc/_sidebar.html' %}
 {% endblock %}
 
 {% block content %}
@@ -23,9 +23,9 @@
                 <h5 class="card-title">{{ item.title }}</h5>
                 <div class="media">
                     {% if item.photo %}
-                        <img src="{{ item.photo.url }}" alt="" width="500">
+                        <img src="{{ item.photo.url }}" alt="" width="350" class="float-end mr-3">
                     {% else %}
-                        <img src="http://picsum.photos/id/1060/350/235" alt="" width="350" class="mr-3">
+                        <img src="http://picsum.photos/id/1060/350/235" alt="" width="350" class="float-end mr-3">
                     {% endif %}
                     <div class="media-body">
 
@@ -34,9 +34,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card-footer text-mixed">
-            {{ item.created_at|timesince }}
+
+            <div class="card-footer text-mixed">
+                {{ item.created_at|timesince }}
+            </div>
         </div>
     {% endfor %}
 

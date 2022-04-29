@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block sidebar %}
-{% include 'inc/_sidebar.html' %}
+    {% include 'inc/_sidebar.html' %}
 {% endblock %}
 
 {% block content %}
@@ -34,9 +34,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card-footer text-mixed">
-            {{ item.created_at|timesince }}
+            <div class="card-footer text-mixed">
+                {{ item.created_at|timesince }}
+            </div>
         </div>
     {% endfor %}
 
