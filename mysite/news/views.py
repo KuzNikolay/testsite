@@ -7,13 +7,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 from .models import News, Category
-from .forms import NewsForm
+from .forms import NewsForm, UserRegisterForm
 from .utils import MyMixin
 
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Вы успешно зарегистрировались')
@@ -21,8 +21,9 @@ def register(request):
         else:
             messages.error(request, 'Ошибка регистрации')
     else:
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm()
     return render(request, 'news/register.html', {"form": form})
+
 
 def login(request):
     return render(request, 'news/login.html')
@@ -41,7 +42,7 @@ class HomeNews(MyMixin, ListView):
     template_name = 'news/home_news_list.html'
     context_object_name = 'news'
     mixin_prop = 'hello word'
-    paginate_by = 5
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

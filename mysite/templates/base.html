@@ -5,10 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     <title>{% block title %}Новости со всего мира{% endblock %}</title>
 </head>
 <body>
@@ -18,26 +16,27 @@
 <div class="container mt-3">
     {% block h1 %}{% endblock %}
     <div class="row">
+
         <div class="col-md-3">
             {% block sidebar %}SIDEBAR{% endblock %}
         </div>
+
         <div class="col-md-9">
 
         {% if messages %}
+
         {% for message in messages %}
 
             {% if message.tags == 'error' %}
-                <div class="alert alert-danger" role="alert"
+                <div class="alert alert-danger" role="alert">
                      {{ message}}
                 </div>
             {% else %}
-                 <div class="alert alert-{{ message.tags }}" role="alert"
+                 <div class="alert alert-{{ message.tags }}" role="alert">
                      {{ message}}
                 </div>
 
             {% endif %}
-
-
 
         {% endfor %}
         {% endif %}
