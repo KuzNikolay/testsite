@@ -6,6 +6,13 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 
+class ContactForm(forms.Form):
+    subject = forms.CharField(label='Тема',
+                              widget=forms.TextInput(attrs={"class": "form-control"}))
+    content = forms.CharField(label='Текст',
+                              widget=forms.Textarea(attrs={"class": "form-control", "rows": 5}))
+
+
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(label='Имя пользователя',
                                widget=forms.TextInput(attrs={"class": "form-control"}))
@@ -16,8 +23,8 @@ class UserLoginForm(AuthenticationForm):
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField(label='Имя пользователя',
                                widget=forms.TextInput(attrs={"class": "form-control"}))
-    password1 = forms.CharField(label='Пароль', help_text=
-    'Ваш пароль должен содержать как минимум 8 символов.',
+    password1 = forms.CharField(label='Пароль',
+                                help_text='Ваш пароль должен содержать как минимум 8 символов.',
                                 widget=forms.PasswordInput(attrs={"class": "form-control"}))
     password2 = forms.CharField(label='Подтверждение пароля',
                                 widget=forms.PasswordInput(attrs={"class": "form-control"}))
