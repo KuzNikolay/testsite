@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'ckeditor',
+    'ckeditor_uploader',
     'news.apps.NewsConfig',
 ]
 
@@ -134,3 +136,5 @@ EMAIL_HOST_USER = 'knik15@yandex.ru'
 EMAIL_HOST_PASSWORD ='098aWd098'
 EMAIL_USE_SSL = True
 EMAIL_USE_TSL = False
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
