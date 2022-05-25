@@ -134,7 +134,7 @@ INTERNAL_IPS = ["127.0.0.1"]
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'knik15@yandex.ru'
-EMAIL_HOST_PASSWORD ='098aWd098'
+EMAIL_HOST_PASSWORD = '098aWd098'
 EMAIL_USE_SSL = True
 EMAIL_USE_TSL = False
 
@@ -143,3 +143,10 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CAPTCHA_LETTER_ROTATION = None
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
 CAPTCHA_NOISE_FUNCTIONS = None
+
+CASHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'django_cache'),
+    }
+}
