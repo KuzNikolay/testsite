@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'ckeditor',
+    'captcha',
     'ckeditor_uploader',
     'news.apps.NewsConfig',
 ]
@@ -138,3 +139,7 @@ EMAIL_USE_SSL = True
 EMAIL_USE_TSL = False
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CAPTCHA_LETTER_ROTATION = None
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_NOISE_FUNCTIONS = None
