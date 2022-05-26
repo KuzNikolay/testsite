@@ -152,3 +152,6 @@ CASHES = {
         'LOCATION': os.path.join(BASE_DIR, 'django_cache'),
     }
 }
+
+# default is 10 pixels Отступ в дереве МРТТ в админке
+MPTT_ADMIN_LEVEL_INDENT = 30
